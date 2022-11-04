@@ -1,18 +1,25 @@
 package dambi.pojoak;
 
+import java.time.LocalDate;
+
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlType;
 
-@XmlType(propOrder = {"nombre", "compañia", "plataforma"})
-@XmlRootElment(name = "Bideojokoa")
+@XmlType(propOrder = {"rango", "titulo", "venta", "series", "plataforma", "fecha_salida", "desarrollador", "publicador"})
+@XmlRootElement(name = "Bideojokoa")
 public class Bideojokoa {
     
-    int id = 0;
-    String nombre;
+    int id;
+    int rango;
+    String titulo;
+    int venta;
+    String series;
     String plataforma;
-    String compañia;
+    LocalDate fecha_salida;
+    String desarrollador;
+    String publicador;
 
     
     public int getId(){
@@ -23,14 +30,41 @@ public class Bideojokoa {
     public void setId(int id){
         this.id = id;
     }
-
-    public String getNombre(){
-        return nombre;
+    
+    public int getRango(){
+        return rango;
     }
 
-    @XmlElement(name = "Nombre")
-    public void setNombre(String nombre){
-        this.nombre = nombre;
+    @XmlElement(name = "Rango")
+    public void setRango(int rango){
+        this.rango = rango;
+    }
+
+    public String getTitulo(){
+        return titulo;
+    }
+
+    @XmlElement(name = "Titulo")
+    public void setTitulo(String titulo){
+        this.titulo = titulo;
+    }
+
+    public int getVenta(){
+        return venta;
+    }
+
+    @XmlElement(name = "Venta")
+    public void setVenta(int venta){
+        this.venta = venta;
+    }
+
+    public String getSeries(){
+        return series;
+    }
+
+    @XmlElement(name = "series")
+    public void setSeries(String series){
+        this.series = series;
     }
 
     public String getPlat(){
@@ -42,17 +76,35 @@ public class Bideojokoa {
         this.plataforma = plat;
     }
 
-    public String getComp(){
-        return compañia;
+    public String getFechaSalida(){
+        return fecha_salida.toString();
     }
 
-    @XmlElement(name = "Compañia")
-    public void setComp(String comp){
-        this.compañia = comp;
+    @XmlElement(name = "Fecha de Salida")
+    public void setFechaSalida(String fecha){
+        this.fecha_salida = LocalDate.parse(fecha);
+    }
+
+    public String getDesarrollador(){
+        return desarrollador;
+    }
+
+    @XmlElement(name = "Desarrollador")
+    public void setDesarrollador(String desarrollador){
+        this.desarrollador = desarrollador;
+    }
+
+    public String getPublicador(){
+        return publicador;
+    }
+
+    @XmlElement(name = "Publicador")
+    public void setPublicador(String publicador){
+        this.publicador = publicador;
     }
 
     @Override
     public String toString(){
-        return "Bideojokoa["+ id +", "+ nombre +", "+ plataforma +", "+ compañia +"]";
+        return "Bideojokoa["+ id +", "+ titulo +", "+ venta +", "+ plataforma +", "+fecha_salida +", "+ desarrollador +", "+publicador+"]";
     }
 }
