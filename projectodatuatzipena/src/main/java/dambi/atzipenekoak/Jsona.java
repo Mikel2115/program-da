@@ -18,8 +18,8 @@ public class Jsona {
     public String strFileIn;
     public String strFileOut;
 
-    public Jsona(String strFile){
-        strFileIn = strFile;
+    public Jsona(String strFileIn){
+        this.strFileIn = strFileIn;
     }
 
     public Jsona(String strFileIn, String strFileOut){
